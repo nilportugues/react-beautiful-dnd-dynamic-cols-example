@@ -25,7 +25,7 @@ const FirstCol = styled(`div`)`
   width: 50%;
   height: 512px;
   position: absolute;
-  top: 50px;
+  overflow: auto;
   left: 0;
 `
 
