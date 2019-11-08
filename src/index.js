@@ -23,6 +23,9 @@ const Container = styled.div`
     margin: 0 !important;
     margin-top: -250px !important;
   }
+  & #first-col {
+    height: auto !important;
+  }
 `
 
 const VideoItemWrapper = styled(`div`)`

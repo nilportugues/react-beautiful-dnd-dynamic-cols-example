@@ -11,8 +11,7 @@ const Title = styled.h3`
   padding: 0 8px;
 `
 const TaskList = styled.div`
-  padding: 8px;
-  margin: 8px 0 !important;
+  margin: 8px !important;
   transition: background-color 0.2s ease;
   background-color: ${props =>
     props.isDraggingOver ? 'skyblue' : 'rgba(0,0,0,0.1)'};
@@ -21,11 +20,11 @@ const TaskList = styled.div`
   border-radius: 6px;
   min-height: 267.59999999999997px !important;
   height: 267.59999999999997px !important;
-  border: 2px solid blue;
 
+  overflow: auto;
   & div div {
     position: relative;
-    margin: 0 !important;
+    margin-bottom: 8px !important;
     display: inline-block;
     min-height: 267.59999999999997px !important;
     height: 267.59999999999997px !important;
@@ -84,9 +83,7 @@ export default class Column extends React.Component {
               isDraggingOver={snapshot.isDraggingOver}
             >
               {this.props.tasks.map((task, index) => (
-                <div>
-                  <TaskItem key={task.id} task={task} index={index} />
-                </div>
+                <TaskItem key={task.id} task={task} index={index} />
               ))}
               {provided.placeholder}
             </TaskList>
