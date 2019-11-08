@@ -21,6 +21,7 @@ const VideoItemWrapper = styled(`div`)`
   width: 100%;
   position: relative;
   float: right;
+  margin-bottom: 20px;
 `
 
 class App extends React.Component {

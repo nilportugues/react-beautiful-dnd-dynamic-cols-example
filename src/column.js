@@ -15,9 +15,9 @@ const TaskList = styled.div`
   padding: 8px;
   transition: background-color 0.2s ease;
   background-color: ${props =>
-    props.isDraggingOver ? 'skyblue' : 'white'}
+    props.isDraggingOver ? 'skyblue' : 'white'};
   flex-grow: 1;
-  min-height: 100px;
+  height: 38px;
 `
 
 const FirstCol = styled(`div`)`
@@ -29,6 +29,10 @@ const FirstCol = styled(`div`)`
   left: 0;
 `
 
+const TaskItem = styled(Task)`
+  width: 192px;
+`
+
 export default class Column extends React.Component {
   render() {
     const ContainerElement = this.props.isFirst ? FirstCol : Container
@@ -36,7 +40,11 @@ export default class Column extends React.Component {
     return (
       <ContainerElement>
         <Title>{this.props.column.title}</Title>
-        <Droppable droppableId={this.props.column.id} type="TASK">
+        <Droppable
+          direction="horizontal"
+          droppableId={this.props.column.id}
+          type="TASK"
+        >
           {(provided, snapshot) => (
             <TaskList
               innerRef={provided.innerRef}
@@ -44,7 +52,11 @@ export default class Column extends React.Component {
               isDraggingOver={snapshot.isDraggingOver}
             >
               {this.props.tasks.map((task, index) => (
-                <Task key={task.id} task={task} index={index} />
+                <div
+                  style={{ display: 'inline-block', width: '196px' }}
+                >
+                  <TaskItem key={task.id} task={task} index={index} />
+                </div>
               ))}
               {provided.placeholder}
             </TaskList>
