@@ -14,6 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      removeElementFromFirstCol: false,
       tasks: {
         'task-2': { id: 'task-2', content: 'Watch my favorite show' },
         'task-3': { id: 'task-3', content: 'Charge my phone' },
@@ -132,7 +133,7 @@ class App extends React.Component {
 
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Container>
-            {this.state.columnOrder.map(columnId => {
+            {this.state.columnOrder.map((columnId, i) => {
               const column = this.state.columns[columnId]
               const tasks = column.taskIds.map(
                 taskId => this.state.tasks[taskId]
