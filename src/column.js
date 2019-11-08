@@ -12,11 +12,14 @@ const Title = styled.h3`
 `
 const TaskList = styled.div`
   padding: 8px;
+  margin: 8px;
   transition: background-color 0.2s ease;
   background-color: ${props =>
-    props.isDraggingOver ? 'skyblue' : 'transparent'};
+    props.isDraggingOver ? 'skyblue' : 'rgba(0,0,0,0.1)'};
   flex-grow: 1;
   height: 38px;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
 `
 
 const FirstCol = styled(`div`)`
