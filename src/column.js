@@ -29,6 +29,10 @@ const FirstCol = styled(`div`)`
   position: absolute;
   overflow: auto;
   left: 0;
+
+  & .videoContainer {
+    height: 100vh;
+  }
 `
 
 const TaskItem = styled(Task)`
