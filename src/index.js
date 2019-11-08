@@ -8,7 +8,6 @@ import Column from './column'
 
 const Container = styled.div`
   width: 100%;
-  background: yellow;
   overflow: auto;
   max-height: 512px;
   width: 50%;
@@ -21,7 +20,7 @@ const VideoItemWrapper = styled(`div`)`
   width: 100%;
   position: relative;
   float: right;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `
 
 class App extends React.Component {
@@ -196,8 +195,7 @@ class App extends React.Component {
 
         <div
           style={{
-            overflow: 'auto',
-            border: '2px solid red'
+            overflow: 'auto'
           }}
         >
           <DragDropContext onDragEnd={this.onDragEnd}>

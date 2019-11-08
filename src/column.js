@@ -8,7 +8,7 @@ const Container = styled.div`
   border-radius: 2px;
 `
 const Title = styled.h3`
-  padding: 8px;
+  padding: 0 8px;
 `
 const TaskList = styled.div`
   padding: 8px;
@@ -23,7 +23,6 @@ const TaskList = styled.div`
 `
 
 const FirstCol = styled(`div`)`
-  border: 2px solid black;
   width: 50%;
   height: 512px;
   position: absolute;
@@ -31,7 +30,7 @@ const FirstCol = styled(`div`)`
   left: 0;
 
   & .videoContainer {
-    height: 100vh;
+    height: auto;
   }
 `
 
@@ -53,6 +52,7 @@ export default class Column extends React.Component {
         >
           {(provided, snapshot) => (
             <TaskList
+              className="videoContainer"
               innerRef={provided.innerRef}
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
