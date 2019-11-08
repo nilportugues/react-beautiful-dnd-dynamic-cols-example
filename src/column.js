@@ -12,25 +12,36 @@ const Title = styled.h3`
 `
 const TaskList = styled.div`
   padding: 8px;
-  margin: 8px !important;
+  margin: 8px 0 !important;
   transition: background-color 0.2s ease;
   background-color: ${props =>
     props.isDraggingOver ? 'skyblue' : 'rgba(0,0,0,0.1)'};
 
-  height: 38px;
   border: 1px dashed rgba(0, 0, 0, 0.3);
   border-radius: 6px;
-  height: 267.59999999999997px;
+  min-height: 267.59999999999997px !important;
+  height: 267.59999999999997px !important;
+  border: 2px solid blue;
 
   & div div {
     position: relative;
     margin: 0 !important;
     display: inline-block;
+    min-height: 267.59999999999997px !important;
+    height: 267.59999999999997px !important;
     ${props => props.isDragging && 'margin-top: 0px !important;'}
   }
+  & .videoContainer div {
+    min-height: 267.59999999999997px !important;
+    height: 267.59999999999997px !important;
+  }
+
   & div {
     position: relative;
     display: inline-block;
+
+    min-height: 267.59999999999997px !important;
+    height: 267.59999999999997px !important;
     ${props =>
       props.isDragging && 'margin-bottom: -250px !important;'}
   }
@@ -42,22 +53,11 @@ const FirstCol = styled(`div`)`
   position: absolute;
   overflow: auto;
   left: 0;
-
-  & div div {
-    position: relative;
-    margin: 0 !important;
-    display: inline-block;
-    margin-top: 0px !important;
-  }
-  & .videoContainer div {
-    position: relative;
-    display: inline-block;
-    margin-bottom: -250px !important;
-  }
 `
 
 const TaskItem = styled(Task)`
   border: 1px solid red;
+  min-height: 267.59999999999997px;
   height: 267.59999999999997px;
   width: 157.2px;
 `
@@ -76,6 +76,7 @@ export default class Column extends React.Component {
         >
           {(provided, snapshot) => (
             <TaskList
+              id={this.props.isFirst ? 'first-col' : ''}
               className="videoContainer"
               innerRef={provided.innerRef}
               {...provided.droppableProps}
@@ -83,7 +84,9 @@ export default class Column extends React.Component {
               isDraggingOver={snapshot.isDraggingOver}
             >
               {this.props.tasks.map((task, index) => (
-                <TaskItem key={task.id} task={task} index={index} />
+                <div>
+                  <TaskItem key={task.id} task={task} index={index} />
+                </div>
               ))}
               {provided.placeholder}
             </TaskList>

@@ -12,6 +12,17 @@ const Container = styled.div`
   max-height: 512px;
   width: 50%;
   float: right;
+  height: auto;
+
+  & #first-col div {
+    position: relative;
+    display: inline-block;
+
+    min-height: 267.59999999999997px !important;
+    height: 267.59999999999997px !important;
+    margin: 0 !important;
+    margin-top: -250px !important;
+  }
 `
 
 const VideoItemWrapper = styled(`div`)`
