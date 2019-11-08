@@ -108,7 +108,10 @@ class App extends React.Component {
     if (this.state.maxItemsPerColumn) {
       const max = this.state.maxItemsPerColumn - 1
       if (finish.taskIds.length > max) {
-        return
+        //Stop from modifying the array if we're not reordering items
+        if (source.droppableId != destination.droppableId) {
+          return
+        }
       }
     }
 
