@@ -7,10 +7,6 @@ const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
   border-radius: 2px;
-  width: 220px;
-
-  display: flex;
-  flex-direction: column;
 `
 const Title = styled.h3`
   padding: 8px;
@@ -24,10 +20,21 @@ const TaskList = styled.div`
   min-height: 100px;
 `
 
+const FirstCol = styled(`div`)`
+  border: 2px solid black;
+  width: 50%;
+  height: 100vh;
+
+  position: relative;
+  float: left;
+`
+
 export default class Column extends React.Component {
   render() {
+    const ContainerElement = this.props.isFirst ? FirstCol : Container
+
     return (
-      <Container>
+      <ContainerElement>
         <Title>{this.props.column.title}</Title>
         <Droppable droppableId={this.props.column.id} type="TASK">
           {(provided, snapshot) => (
@@ -43,7 +50,7 @@ export default class Column extends React.Component {
             </TaskList>
           )}
         </Droppable>
-      </Container>
+      </ContainerElement>
     )
   }
 }

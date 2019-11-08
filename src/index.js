@@ -7,7 +7,8 @@ import styled from 'styled-components'
 import Column from './column'
 
 const Container = styled.div`
-  display: flex;
+  width: 100%;
+  background: yellow;
 `
 
 class App extends React.Component {
@@ -139,12 +140,27 @@ class App extends React.Component {
                 taskId => this.state.tasks[taskId]
               )
 
+              let Wrapper = React.Fragment
+              if (i > 0) {
+                Wrapper = styled(`div`)`
+                  border: 1px solid red;
+                  flex-direction: column;
+                  width: 45%;
+                  height: 256px;
+                  position: relative;
+                  float: right;
+                `
+              }
+
               return (
-                <Column
-                  key={column.id}
-                  column={column}
-                  tasks={tasks}
-                />
+                <Wrapper>
+                  <Column
+                    key={column.id}
+                    isFirst={column.id === 'column-1'}
+                    column={column}
+                    tasks={tasks}
+                  />
+                </Wrapper>
               )
             })}
           </Container>
