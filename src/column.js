@@ -20,6 +20,8 @@ const TaskList = styled.div`
   height: 38px;
   border: 1px dashed rgba(0, 0, 0, 0.3);
   border-radius: 6px;
+
+  height: 287.59999999999997px;
 `
 
 const FirstCol = styled(`div`)`
@@ -35,7 +37,9 @@ const FirstCol = styled(`div`)`
 `
 
 const TaskItem = styled(Task)`
-  width: 192px;
+  border: 1px solid red;
+  height: 267.59999999999997px;
+  width: 157.2px;
 `
 
 export default class Column extends React.Component {
@@ -59,7 +63,9 @@ export default class Column extends React.Component {
             >
               {this.props.tasks.map((task, index) => (
                 <div
-                  style={{ display: 'inline-block', width: '196px' }}
+                  style={{
+                    display: 'inline-block'
+                  }}
                 >
                   <TaskItem key={task.id} task={task} index={index} />
                 </div>
