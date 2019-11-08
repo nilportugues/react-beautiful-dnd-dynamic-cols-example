@@ -23,10 +23,10 @@ const TaskList = styled.div`
 const FirstCol = styled(`div`)`
   border: 2px solid black;
   width: 50%;
-  height: 100vh;
-
-  position: relative;
-  float: left;
+  height: 512px;
+  position: absolute;
+  top: 50px;
+  left: 0;
 `
 
 export default class Column extends React.Component {

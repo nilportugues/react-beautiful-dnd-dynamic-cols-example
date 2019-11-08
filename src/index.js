@@ -144,8 +144,8 @@ class App extends React.Component {
               if (i > 0) {
                 Wrapper = styled(`div`)`
                   border: 1px solid red;
-                  flex-direction: column;
-                  width: 45%;
+                  display: list-item;
+                  width: 50%;
                   height: 256px;
                   position: relative;
                   float: right;
