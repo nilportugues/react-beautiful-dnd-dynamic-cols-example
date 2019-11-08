@@ -69,6 +69,7 @@ class App extends React.Component {
 
     this.state = {
       removeElementFromFirstCol: false,
+      maxItemsPerColumn: 3,
       tasks: tasks,
       columns: {
         'column-1': {
@@ -102,6 +103,14 @@ class App extends React.Component {
 
     const start = this.state.columns[source.droppableId]
     const finish = this.state.columns[destination.droppableId]
+
+    //Set the max amount of elements per column.
+    if (this.state.maxItemsPerColumn) {
+      const max = this.state.maxItemsPerColumn - 1
+      if (finish.taskIds.length > max) {
+        return
+      }
+    }
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds)
